@@ -4,5 +4,32 @@ wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/sha
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install vagrant
 
-#install on windows 
+# install on windows 
 goto ->  https://developer.hashicorp.com/vagrant/downloads
+
+# install gem 
+apt install ruby-rubygems
+sudo apt-get install ruby-dev
+
+
+# install aws plugin
+vagrant plugin install fog-aws
+vagrant plugin update
+sudo apt-get update
+sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev
+sudo apt install -y build-essential
+sudo apt install -y zlib1g-dev
+
+sudo rm -rf /tmp/ruby-build.*
+
+rbenv install 2.7.3
+rbenv global 2.7.3
+vagrant plugin install vagrant-aws
+
+# install plugin choose one
+vagrant plugin install vagrant-azure
+vagrant plugin install vagrant-digitalocean
+vagrant plugin install vagrant-google
+vagrant plugin install vagrant-vmware-aws
+vagrant plugin install vagrant-vmware-google
+vagrant plugin install vagrant-linode
