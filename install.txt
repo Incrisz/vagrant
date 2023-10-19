@@ -25,11 +25,21 @@ sudo rm -rf /tmp/ruby-build.*
 rbenv install 2.7.3
 rbenv global 2.7.3
 vagrant plugin install vagrant-aws
+vagrant up --provider=aws
+
+# configure vagrant 2.3.0
+wget https://releases.hashicorp.com/vagrant/2.3.0/vagrant_2.3.0_linux_amd64.zip
+unzip vagrant_2.3.0_linux_amd64.zip
+sudo mv vagrant /usr/local/bin/
+sudo chmod +x /usr/local/bin/vagrant
+vagrant --version
+
 
 # install plugin choose one
 vagrant plugin install vagrant-azure
 vagrant plugin install vagrant-digitalocean
 vagrant plugin install vagrant-google
 vagrant plugin install vagrant-vmware-aws
+vagrant plugin install vagrant-aws
 vagrant plugin install vagrant-vmware-google
 vagrant plugin install vagrant-linode
