@@ -1,4 +1,4 @@
-# install vagrant on linux
+# install vagrant on linux for latest version [dont use cuz its not stable]
 
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
@@ -7,31 +7,18 @@ sudo apt update && sudo apt install vagrant
 # install on windows 
 goto ->  https://developer.hashicorp.com/vagrant/downloads
 
-# install gem 
-apt install ruby-rubygems
-sudo apt-get install ruby-dev
-
-
-# install aws plugin
-vagrant plugin install fog-aws
-vagrant plugin update
-sudo apt-get update
-sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev
-sudo apt install -y build-essential
-sudo apt install -y zlib1g-dev
-
-sudo rm -rf /tmp/ruby-build.*
-
-rbenv install 2.7.3
-rbenv global 2.7.3
-vagrant plugin install vagrant-aws
-vagrant up --provider=aws
-
 # configure vagrant 2.3.0
 wget https://releases.hashicorp.com/vagrant/2.3.0/vagrant_2.3.0_linux_amd64.zip
 unzip vagrant_2.3.0_linux_amd64.zip
 sudo mv vagrant /usr/local/bin/
 sudo chmod +x /usr/local/bin/vagrant
+sudo apt-get install fuse
+sudo modprobe fuse
+
+sudo apt-get install libxml2-dev
+sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install build-essential
+
 vagrant --version
 
 
@@ -43,3 +30,7 @@ vagrant plugin install vagrant-vmware-aws
 vagrant plugin install vagrant-aws
 vagrant plugin install vagrant-vmware-google
 vagrant plugin install vagrant-linode
+
+
+# view installed plugin
+vagrant plugin list
